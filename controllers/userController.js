@@ -19,7 +19,7 @@ export const createUser = async (req, res) => {
     });
 
     // Save the user to the database
-    const savedUser = await user.save();
+    const savedUser = await user.save().lean();;
     res.status(201).json({
       // 201 Created
       message: `${role} created successfully`,
@@ -36,7 +36,7 @@ export const createUser = async (req, res) => {
 
 export const getAllUsers = async (req, res) => {
   try {
-    const getUsers = await userModel.find();
+    const getUsers = await userModel.find().lean();;
     res.status(200).json({ getUsers });
   } catch (error) {
     res.status(500).json({
