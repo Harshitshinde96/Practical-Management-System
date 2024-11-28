@@ -1,4 +1,4 @@
-import SubjectModel from "../models/Subject";
+import SubjectModel from "../models/Subject.js";
 
 // Create a new subject
 export const createSubject = async (req, res) => {
@@ -37,7 +37,7 @@ export const createSubject = async (req, res) => {
 };
 
 // Get all subjects (admin sees full details, others see only subject list)
-const getSubjects = async (req, res) => {
+export const getSubjects = async (req, res) => {
   try {
     let subjects;
 

@@ -2,16 +2,25 @@ import express from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
 import dbConnect from "../config/database.js";
-import router from "../routes/userRoutes.js";
 
-const app = express();
+//Routes Imported
+import userRoutes from "../routes/userRoutes.js";
+import subjectRoutes from "../routes/subjectRoutes.js";
+// import practicalRoutes from '../routes/practicalRoutes.js'
 
 dotenv.config();
+const app = express();
+
 // const PORT = 3000;
 const PORT = 3000 || process.env.PORT;
 app.use(express.json());
 
-app.use("/api/v1", router);
+// app.use("/api/v1", router);
+// Route grouping
+app.use('/api/v1/users', userRoutes);
+app.use('/api/v1/subjects', subjectRoutes);
+// app.use('/api/v1/practicals', practicalRoutes);
+
 
 app.get("/", (req, res) => {
   res.json({
