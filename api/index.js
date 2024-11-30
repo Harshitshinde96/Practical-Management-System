@@ -17,9 +17,9 @@ app.use(express.json());
 
 // app.use("/api/v1", router);
 // Route grouping
-app.use('/api/v1/users', userRoutes);
-app.use('/api/v1/subjects', subjectRoutes);
-// app.use('/api/v1/practicals', practicalRoutes);
+app.use('/api/v1', userRoutes);
+app.use('/api/v1', subjectRoutes);
+// app.use('/api/v1', practicalRoutes);
 
 
 app.get("/", (req, res) => {
