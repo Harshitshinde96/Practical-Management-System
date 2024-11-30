@@ -6,7 +6,7 @@ import dbConnect from "../config/database.js";
 //Routes Imported
 import userRoutes from "../routes/userRoutes.js";
 import subjectRoutes from "../routes/subjectRoutes.js";
-// import practicalRoutes from '../routes/practicalRoutes.js'
+import practicalRoutes from '../routes/practicalRoutes.js'
 
 dotenv.config();
 const app = express();
@@ -19,7 +19,7 @@ app.use(express.json());
 // Route grouping
 app.use('/api/v1', userRoutes);
 app.use('/api/v1', subjectRoutes);
-// app.use('/api/v1', practicalRoutes);
+app.use('/api/v1', practicalRoutes);
 
 
 app.get("/", (req, res) => {

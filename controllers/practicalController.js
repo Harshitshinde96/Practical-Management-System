@@ -1,9 +1,12 @@
 import Practical from "../models/Practical.js";
 import SubjectModel from "../models/Subject.js";
 
+
+// “/practicals/create”: Add a practical to a subject. (Teacher-only)
+// Request Body: { subjectId, title, description }
 export const createPractical = async (req, res) => {
   try {
-    const { subjectId, title, description } = req.body;
+    const { subjectId, title, description,createdBy } = req.body;
 
     if (!subjectId || !title || !description) {
       return res.status(400).json({
