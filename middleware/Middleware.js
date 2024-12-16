@@ -1,9 +1,15 @@
+
 import userModel from "../models/User.js";
+import express from "express";
+
+const app = express();
+
+app.use(express.json());
 
 export const isAdmin = async (req, res, next) => {
   try {
     const { email } = req.body;
-
+    console.log(req.body);
     if (!email) {
       return res.status(400).json({ message: "Email is required." });
     }
@@ -40,6 +46,6 @@ export const isTeacher = async (req, res, next) => {
   } catch (error) {
     res
       .status(500)
-      .json({ message: `Internal Server Error: ${error.message}` });
+      .json({ message: `Internal Server Error: ${error.message} `});
   }
 };
